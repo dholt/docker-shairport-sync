@@ -8,6 +8,7 @@
         --net host \
         --device /dev/snd \
         -e AIRPLAY_NAME=Docker \
+	-e ALSA_CARD=Device \
         kevineye/shairport-sync
 
 ### Parameters
@@ -16,6 +17,7 @@
 * `--device /dev/snd` share host alsa system with container. Does not require `--privileged` as `-v /dev/snd:/dev/snd` would
 * `-e AIRPLAY_NAME=Docker` set the AirPlay device name. Defaults to Docker
 * extra arguments will be passed to shairplay-sync (try `-- help`)
+* `-e ALSA_CARD=Device` set the output device, find devices with `aplay -l`
 
 ## More examples
 

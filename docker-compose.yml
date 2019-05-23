@@ -1,0 +1,16 @@
+---
+version: "3"
+services:
+  shairport-sync:
+    build:
+      context: .
+    image: docker-shairport-sync
+    container_name: docker-shairport-sync
+    network_mode: host
+    devices:
+      - /dev/snd
+    environment:
+      - AIRPLAY_NAME=stereo
+      - ALSA_CARD=Device
+      - TZ=America/Denver
+    restart: unless-stopped
